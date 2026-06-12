@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De Carli Porto Alegre – Showroom & Projetos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ── Carousel de projetos ── */
+    .carousel-wrap { position:relative; overflow:hidden; margin:0 -5vw; padding:0 5vw; }
+    .carousel-track {
+      display:flex; gap:6px;
+      transition:transform 0.65s cubic-bezier(0.25,0.46,0.45,0.94);
+      will-change:transform;
+    }
+    .projeto-card {
+      flex:0 0 calc(33.333% - 4px); min-width:0;
+      position:relative; aspect-ratio:3/4;
+      overflow:hidden; cursor:pointer; background:var(--dark-mid);
+    }
+    .projeto-card img { width:100%;height:100%;object-fit:cover; transition:transform 0.7s ease; }
+    .projeto-card:hover img { transform:scale(1.06); }
+    .projeto-card-overlay {
+      position:absolute;inset:0;
+      background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,transparent 55%);
+      display:flex;flex-direction:column;justify-content:flex-end;padding:28px 24px;
+    }
+    .projeto-card-tag { font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:4px; }
+    .projeto-card-title { font-family:var(--font-serif);font-size:1.15rem;color:var(--white);font-weight:400; }
+
+    /* Setas */
+    .carousel-nav { display:flex;align-items:center;justify-content:center;gap:24px;margin-top:40px; }
+    .carousel-arrow {
+      width:48px;height:48px;border:1px solid rgba(201,169,110,0.35);
+      background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+      color:var(--dark);transition:var(--transition);
+    }
+    .carousel-arrow:hover { background:var(--gold);border-color:var(--gold); }
+    .carousel-arrow:hover svg { stroke:var(--white); }
+    .carousel-arrow svg { stroke:var(--dark);transition:stroke var(--transition); }
+    .carousel-counter { font-size:0.7rem;letter-spacing:0.15em;color:var(--light-mid);min-width:60px;text-align:center; }
+
+    .proj-btn { font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;padding:14px 28px;color:var(--light-mid);border:1px solid rgba(201,169,110,0.2);transition:var(--transition);cursor:pointer;background:none; }
+    .proj-btn:hover { color:var(--dark);border-color:var(--gold); }
+    .proj-btn.active { color:var(--white);background:var(--gold);border-color:var(--gold); }
+
+    @media(max-width:900px){ .projeto-card{flex:0 0 calc(50% - 3px);} .instagram-grid{grid-template-columns:repeat(3,1fr);} .ambiente-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:540px){ .projeto-card{flex:0 0 calc(85% - 3px);} }
+
+    /* Ambiente modal */
+    .ambiente-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.96); z-index:3000; overflow-y:auto; }
+    .ambiente-modal.open { display:block; }
+    .ambiente-modal-inner { max-width:1200px; margin:80px auto; padding:0 24px 80px; }
+    .ambiente-modal-close { position:fixed; top:24px; right:32px; color:var(--white); font-size:2rem; cursor:pointer; z-index:1; opacity:0.6; transition:opacity var(--transition-fast); background:none; border:none; }
+    .ambiente-modal-close:hover { opacity:1; }
+    .ambiente-modal h3 { color:var(--white); font-size:2.5rem; margin-bottom:48px; }
+    .ambiente-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:4px; }
+    .ambiente-grid img { width:100%;aspect-ratio:1;object-fit:cover; cursor:pointer; transition:transform 0.5s ease; }
+    .ambiente-grid img:hover { transform:scale(1.03); }
+
+    @media(max-width:900px){ .projetos-grid{grid-template-columns:repeat(2,1fr);} .instagram-grid{grid-template-columns:repeat(3,1fr);} .ambiente-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:600px){ .projetos-grid{grid-template-columns:1fr;} .ambiente-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/images/logo/LOGO BRANCO.png" alt="De Carli"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="institucional.html">Institucional</a></li>
+      <li><a href="colecoes.html">Coleções</a></li>
+      <li><a href="lazqa.html">Lazqa</a></li>
+      <li><a href="porto-alegre.html" class="active">Porto Alegre</a></li>
+      <li><a href="passo-fundo.html">Passo Fundo</a></li>
+    </ul>
+    <button class="nav-hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <button class="nav-mobile-close">×</button>
+  <a href="index.html">Home</a><a href="institucional.html">Institucional</a>
+  <a href="colecoes.html">Coleções</a><a href="lazqa.html">Lazqa</a>
+  <a href="porto-alegre.html">Porto Alegre</a><a href="passo-fundo.html">Passo Fundo</a>
+</div>
+
+<!-- VÍDEO TOUR -->
+<section style="background:var(--black);padding-top:var(--nav-h);">
+  <div class="video-banner" style="height:calc(100vh - var(--nav-h));min-height:520px;">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="assets/video/PortoAlegre/TourLojaPortoAlegre.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div style="background:var(--dark);padding:80px 0;">
+    <div class="container">
+      <div style="max-width:800px;margin:0 auto;text-align:center;" class="reveal">
+        <span class="gold-line center"></span>
+        <span class="eyebrow">Porto Alegre</span>
+        <h2 style="color:var(--white);margin-bottom:24px;">Showroom & Experiência Sensorial</h2>
+        <p style="color:rgba(255,255,255,0.55);font-size:1rem;line-height:1.9;">A De Carli executa os mais variados e detalhados tipos de projetos e acabamentos para ambientes residenciais, comerciais e corporativos. Oferecemos um espaço com enfoque sensorial em nosso showroom, muitas possibilidades em cores e acabamentos em materiais diferenciados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETOS -->
+<section class="section" style="background:var(--cream);" id="projetos">
+  <div class="container">
+    <div class="section-intro reveal" style="margin-bottom:48px;">
+      <span class="gold-line center"></span>
+      <span class="eyebrow">Porto Alegre</span>
+      <h2>Nossos Projetos</h2>
+      <p>Conheça os ambientes e inspire-se em nossas aplicações.</p>
+    </div>
+
+    <div style="display:flex;gap:0;flex-wrap:wrap;margin-bottom:56px;" class="reveal">
+      <button class="proj-btn active" onclick="filterProj(this,'residencial')">Residenciais</button>
+      <button class="proj-btn" onclick="filterProj(this,'corporativo')">Corporativos</button>
+      <button class="proj-btn" onclick="filterProj(this,'construtora')">Construtoras</button>
+    </div>
+
+    <!-- Residenciais carousel -->
+    <div id="grid-residencial" class="reveal">
+      <div class="carousel-wrap">
+        <div class="carousel-track" id="track-poa-res">
+          <div class="projeto-card" onclick="openAmbiente('banheiros')">
+            <img src="assets/images/Aba de projetos/RESIDENCIAIS/BANHEIROS/01 CAPA.jpg" alt="Banheiros" onerror="this.src='assets/images/MÁRMORES/AURORA WHITE.jpg'">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Residencial</span><div class="projeto-card-title">Banheiros</div></div>
+          </div>
+          <div class="projeto-card" onclick="openAmbiente('livings')">
+            <img src="assets/images/Aba de projetos/RESIDENCIAIS/LIVING/01.jpg" alt="Livings" onerror="this.src='assets/images/MÁRMORES/Statuario.jpg'">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Residencial</span><div class="projeto-card-title">Livings</div></div>
+          </div>
+          <div class="projeto-card" onclick="openAmbiente('lareiras')">
+            <img src="assets/images/Aba de projetos/RESIDENCIAIS/LAREIRAS/01 (2).jpg" alt="Lareiras" onerror="this.src='assets/images/MÁRMORES/ROSSO LEVANTO.jpg'">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Residencial</span><div class="projeto-card-title">Lareiras</div></div>
+          </div>
+          <div class="projeto-card" onclick="openAmbiente('lavabos')">
+            <img src="assets/images/Aba de projetos/RESIDENCIAIS/LAVABO/01.jpg" alt="Lavabos" onerror="this.src='assets/images/QUARTZITOS/MONT BLANC.jpg'">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Residencial</span><div class="projeto-card-title">Lavabos</div></div>
+          </div>
+          <div class="projeto-card" onclick="openAmbiente('cozinhas')">
+            <img src="assets/images/Aba de projetos/RESIDENCIAIS/COZINHA/20200827_145434.jpg" alt="Cozinhas" onerror="this.src='assets/images/DEKTON/DEKTON AURA.jpg'">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Residencial</span><div class="projeto-card-title">Cozinhas</div></div>
+          </div>
+          <div class="projeto-card" onclick="openAmbiente('quartos')">
+            <img src="assets/images/Aba de projetos/RESIDENCIAIS/QUARTO/20241217_201651736_iOS.jpg" alt="Quartos" onerror="this.src='assets/images/MÁRMORES/AURORA GREY.jpg'">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Residencial</span><div class="projeto-card-title">Quartos</div></div>
+          </div>
+          <div class="projeto-card" onclick="openAmbiente('area-externa')">
+            <img src="assets/images/Aba de projetos/RESIDENCIAIS/ÁREA EXTERNA_/20241217_202321856_iOS.jpg" alt="Área Externa" onerror="this.src='assets/images/QUARTZITOS/bronzite-escovado.jpg'">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Residencial</span><div class="projeto-card-title">Área Externa</div></div>
+          </div>
+          <div class="projeto-card" onclick="openAmbiente('lavanderia')">
+            <img src="assets/images/Aba de projetos/RESIDENCIAIS/LAVANDERIA/20200827_161103.jpg" alt="Lavanderia" onerror="this.src='assets/images/DEKTON/DEKTON ARGA.jpg'">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Residencial</span><div class="projeto-card-title">Lavanderia</div></div>
+          </div>
+          <div class="projeto-card" onclick="openAmbiente('hall')">
+            <img src="assets/images/Aba de projetos/RESIDENCIAIS/HALL/20200827_145621.jpg" alt="Hall" onerror="this.src='assets/images/MÁRMORES/calacata-nobile-decolores.jpg'">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Residencial</span><div class="projeto-card-title">Hall</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-arrow" onclick="slidePOA('track-poa-res',-1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <span class="carousel-counter" id="counter-poa-res">1 / 9</span>
+        <button class="carousel-arrow" onclick="slidePOA('track-poa-res',1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+
+    <!-- Corporativos carousel -->
+    <div id="grid-corporativo" style="display:none;">
+      <div class="carousel-wrap">
+        <div class="carousel-track" id="track-poa-corp">
+          <div class="projeto-card">
+            <img src="assets/images/Aba de projetos/CORPORATIVOS/BENJAMIN OSTERIA RESTAURANTE - BELMONDO/JBZ_BANCADA_VERDE_GUATEMALA_.jpg" alt="Benjamin Osteria" onerror="this.src='assets/images/GRANITOS/AZUL BAHIA.jpg'">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Corporativo</span><div class="projeto-card-title">Benjamin Osteria Restaurante</div></div>
+          </div>
+          <div class="projeto-card">
+            <img src="assets/images/Aba de projetos/CORPORATIVOS/DUFRIL/12-03-2025 ANIL - DufrioDSC08796.jpg" alt="Dufril" onerror="this.src='assets/images/GRANITOS/SILVER GREY.jpg'">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Corporativo</span><div class="projeto-card-title">Dufril</div></div>
+          </div>
+          <div class="projeto-card">
+            <img src="assets/images/Aba de projetos/CORPORATIVOS/LOJA KULKES - IGUATEMI/20241216_183122502_iOS.jpg" alt="Loja Kulkes" onerror="this.src='assets/images/SILESTONE/concrete pulse.jpg'">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Corporativo</span><div class="projeto-card-title">Loja Kulkes – Iguatemi</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-arrow" onclick="slidePOA('track-poa-corp',-1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <span class="carousel-counter" id="counter-poa-corp">1 / 3</span>
+        <button class="carousel-arrow" onclick="slidePOA('track-poa-corp',1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+
+    <!-- Construtoras carousel -->
+    <div id="grid-construtora" style="display:none;">
+      <div class="carousel-wrap">
+        <div class="carousel-track" id="track-poa-const">
+          <div class="projeto-card">
+            <img src="assets/images/Aba de projetos/CONSTRUTORAS/JBZ - BELMONDO/Decarli-1.jpg" alt="Belmondo">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Construtora</span><div class="projeto-card-title">JBZ – Belmondo</div></div>
+          </div>
+          <div class="projeto-card">
+            <img src="assets/images/Aba de projetos/CONSTRUTORAS/THE PARK - CYRELA/original-23-11-2020-14-59-40-064812-347x368.jpg" alt="The Park Cyrela">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Construtora</span><div class="projeto-card-title">The Park – Cyrela</div></div>
+          </div>
+          <div class="projeto-card">
+            <img src="assets/images/Aba de projetos/CONSTRUTORAS/LUCIANA 250 -  Wolens Incorporadora/WhatsApp-Image-2021-11-19-at-11.52.43.jpg" alt="Luciana 250">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Construtora</span><div class="projeto-card-title">Wolens – Luciana 250</div></div>
+          </div>
+          <div class="projeto-card">
+            <img src="assets/images/Aba de projetos/CONSTRUTORAS/VOGA - CFL/voga_nmlss_103 (1).jpg" alt="Voga CFL">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Construtora</span><div class="projeto-card-title">Voga – CFL</div></div>
+          </div>
+          <div class="projeto-card">
+            <img src="assets/images/Aba de projetos/CONSTRUTORAS/CVF - VIVANT/LOGO/5.jpg" alt="CVF Vivant" onerror="this.src='assets/images/MÁRMORES/Calacata Italiano.jpg'">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Construtora</span><div class="projeto-card-title">CVF – Vivant</div></div>
+          </div>
+          <div class="projeto-card">
+            <img src="assets/images/Aba de projetos/CONSTRUTORAS/THE PARK - CYRELA/original-23-11-2020-15-00-26-658535-347x368.jpg" alt="The Park">
+            <div class="projeto-card-overlay"><span class="projeto-card-tag">Construtora</span><div class="projeto-card-title">The Park – Cyrela II</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-arrow" onclick="slidePOA('track-poa-const',-1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <span class="carousel-counter" id="counter-poa-const">1 / 6</span>
+        <button class="carousel-arrow" onclick="slidePOA('track-poa-const',1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ESPAÇO ESSÊNCIA -->
+<section style="background:var(--black);" id="essencia">
+  <div style="position:relative;height:90vh;min-height:600px;display:flex;align-items:flex-end;overflow:hidden;">
+    <img src="assets/images/ESPAÇO ESSÊNCIA/1. CAPA.jpg" alt="Espaço Essência" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.2) 100%);"></div>
+    <div style="position:relative;z-index:2;padding:0 5% 80px;max-width:700px;">
+      <span class="eyebrow">Porto Alegre</span>
+      <h2 style="color:var(--white);font-size:clamp(2rem,5vw,4rem);margin-bottom:16px;">Espaço Essência</h2>
+      <p style="color:rgba(255,255,255,0.65);font-size:1rem;line-height:1.8;margin-bottom:32px;font-style:italic;">Descubra os detalhes deste ambiente exclusivo.</p>
+      <a href="#essencia-conteudo" class="btn btn-gold"><span>Conhecer o Espaço</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+
+  <div style="background:var(--black);padding:100px 0;" id="essencia-conteudo">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;" class="reveal">
+        <div>
+          <span class="gold-line"></span>
+          <span class="eyebrow">HB Interiores & Poz Design</span>
+          <h3 style="color:var(--white);margin-bottom:28px;">Um universo inspirador de alto padrão</h3>
+          <p style="color:rgba(255,255,255,0.55);margin-bottom:20px;">Um universo inspirador proposto pela HB Interiores e POZ design. Você irá conhecer um espaço gourmet imponente, com adega e um incrível ambiente de jantar.</p>
+          <p style="color:rgba(255,255,255,0.55);margin-bottom:20px;">Todos os revestimentos foram minuciosamente escolhidos para que a sua experiência em nosso espaço seja única e extraordinária.</p>
+          <p style="color:rgba(255,255,255,0.55);margin-bottom:20px;">Uma estante em mármore Dolomítico Donatello divide o showroom do jardim de inverno, esse todo revestido com um basalto em forma irregular.</p>
+          <p style="color:rgba(255,255,255,0.55);">A ilha composta em DEKTON traz toda a resistência que uma bancada precisa, além de vários recortes para que você conheça cada alternativa que a De Carli propicia para seu projeto.</p>
+        </div>
+        <div>
+          <p style="color:rgba(255,255,255,0.55);margin-bottom:20px;">A cada passo dado sob um quartzito Mont Blanc, um detalhe diferente, onde é possível conhecer todas as possibilidades que só a De Carli proporciona para você.</p>
+          <p style="color:rgba(255,255,255,0.55);">Em cada ambiente em que você estará, detalhes encantadores encherão os seus olhos e lhe provocarão sensações únicas.</p>
+        </div>
+      </div>
+
+      <!-- Galeria Essência -->
+      <div style="margin-top:60px;" class="reveal">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3px;">
+          <img src="assets/images/ESPAÇO ESSÊNCIA/1. CAPA.jpg" alt="Espaço Essência" style="width:100%;aspect-ratio:1;object-fit:cover;cursor:pointer;" data-lightbox="assets/images/ESPAÇO ESSÊNCIA/1. CAPA.jpg">
+          <img src="assets/images/ESPAÇO ESSÊNCIA/2.jpg" alt="Espaço Essência" style="width:100%;aspect-ratio:1;object-fit:cover;cursor:pointer;" data-lightbox="assets/images/ESPAÇO ESSÊNCIA/2.jpg">
+          <img src="assets/images/ESPAÇO ESSÊNCIA/3.jpg" alt="Espaço Essência" style="width:100%;aspect-ratio:1;object-fit:cover;cursor:pointer;" data-lightbox="assets/images/ESPAÇO ESSÊNCIA/3.jpg">
+          <img src="assets/images/ESPAÇO ESSÊNCIA/4.jpg" alt="Espaço Essência" style="width:100%;aspect-ratio:1;object-fit:cover;cursor:pointer;" data-lightbox="assets/images/ESPAÇO ESSÊNCIA/4.jpg">
+          <img src="assets/images/ESPAÇO ESSÊNCIA/5.jpg" alt="Espaço Essência" style="width:100%;aspect-ratio:1;object-fit:cover;cursor:pointer;" data-lightbox="assets/images/ESPAÇO ESSÊNCIA/5.jpg">
+          <img src="assets/images/ESPAÇO ESSÊNCIA/6.jpg" alt="Espaço Essência" style="width:100%;aspect-ratio:1;object-fit:cover;cursor:pointer;" data-lightbox="assets/images/ESPAÇO ESSÊNCIA/6.jpg">
+          <img src="assets/images/ESPAÇO ESSÊNCIA/7.jpg" alt="Espaço Essência" style="width:100%;aspect-ratio:1;object-fit:cover;cursor:pointer;" data-lightbox="assets/images/ESPAÇO ESSÊNCIA/7.jpg">
+          <img src="assets/images/ESPAÇO ESSÊNCIA/8.jpg" alt="Espaço Essência" style="width:100%;aspect-ratio:1;object-fit:cover;cursor:pointer;" data-lightbox="assets/images/ESPAÇO ESSÊNCIA/8.jpg">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Carousel galeria – full bleed -->
+  <div class="reveal" style="padding:0 5vw;overflow:hidden;margin-top:60px;">
+    <div style="overflow:hidden;margin:0 -5vw;padding:0 5vw;">
+      <div id="track-galeria-poa" style="display:flex;gap:6px;transition:transform 0.65s cubic-bezier(0.25,0.46,0.45,0.94);will-change:transform;">
+
+        <div class="video-gallery-wrap" style="flex:0 0 calc(66.666% - 3px);min-width:0;aspect-ratio:16/9;">
+          <video controls playsinline preload="metadata">
+            <source src="assets/video/Espaço_Essência/espacoEssencia.mp4" type="video/mp4">
+          </video>
+          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);padding:24px 28px;pointer-events:none;z-index:2;">
+            <span style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">Essência</span>
+            <div style="font-family:var(--font-serif);font-size:1.1rem;color:var(--white);margin-top:4px;">Tour pelo Espaço I</div>
+          </div>
+        </div>
+
+        <div class="video-gallery-wrap" style="flex:0 0 calc(66.666% - 3px);min-width:0;aspect-ratio:16/9;">
+          <video controls playsinline preload="metadata">
+            <source src="assets/video/PortoAlegre/galeria1.mp4" type="video/mp4">
+          </video>
+          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);padding:24px 28px;pointer-events:none;z-index:2;">
+            <span style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">Essência</span>
+            <div style="font-family:var(--font-serif);font-size:1.1rem;color:var(--white);margin-top:4px;">Tour pelo Espaço II</div>
+          </div>
+        </div>
+
+        <div class="video-gallery-wrap" style="flex:0 0 calc(66.666% - 3px);min-width:0;aspect-ratio:16/9;">
+          <video controls playsinline preload="metadata">
+            <source src="assets/video/PortoAlegre/galeria2.mp4" type="video/mp4">
+          </video>
+          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);padding:24px 28px;pointer-events:none;z-index:2;">
+            <span style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">Essência</span>
+            <div style="font-family:var(--font-serif);font-size:1.1rem;color:var(--white);margin-top:4px;">Tour pelo Espaço III</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="carousel-nav" style="margin-top:32px;">
+      <button class="carousel-arrow" onclick="slideGaleria('track-galeria-poa','poa',-1)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="carousel-counter" id="counter-galeria-poa">1 / 3</span>
+      <button class="carousel-arrow" onclick="slideGaleria('track-galeria-poa','poa',1)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Texto -->
+  <div class="container" style="margin-top:80px;">
+    <div style="max-width:820px;margin:0 auto;text-align:center;" class="reveal">
+      <p style="margin-bottom:20px;">Na galeria da De Carli Porto Alegre, a escolha da pedra deixa de ser apenas técnica e passa a ser uma experiência sensorial. Nosso espaço foi projetado para que arquitetos, designers e clientes possam observar de perto cada detalhe das chapas naturais, percebendo texturas, tonalidades e variações únicas que somente a natureza pode criar.</p>
+      <p style="margin-bottom:20px;">Aqui, é possível selecionar pessoalmente a pedra que fará parte do projeto, analisando exatamente os veios, movimentos e nuances estéticas que irão compor o ambiente final.</p>
+      <p>Mais do que escolher um material, o cliente vivencia o encontro direto com a matéria-prima que dará vida ao seu espaço.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section style="background:var(--dark);padding:100px 0;">
+  <div class="container">
+    <div class="section-intro reveal" style="margin-bottom:48px;">
+      <span class="gold-line center"></span>
+      <span class="eyebrow">Siga-nos</span>
+      <h2 style="color:var(--white);">@decarlimarmores</h2>
+      <p style="color:rgba(255,255,255,0.4);">Acompanhe os projetos e lançamentos da De Carli Porto Alegre.</p>
+    </div>
+    <!-- Feed simulado – integre via Behold.so ou Elfsight para feed real -->
+    <div class="instagram-grid reveal">
+      <a href="https://www.instagram.com/decarlimarmores/" target="_blank" class="instagram-item"><img src="assets/images/ESPAÇO ESSÊNCIA/2.jpg" alt="Instagram"><div class="instagram-item-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div></a>
+      <a href="https://www.instagram.com/decarlimarmores/" target="_blank" class="instagram-item"><img src="assets/images/MÁRMORES/Statuario.jpg" alt="Instagram"><div class="instagram-item-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div></a>
+      <a href="https://www.instagram.com/decarlimarmores/" target="_blank" class="instagram-item"><img src="assets/images/QUARTZITOS/MONT BLANC.jpg" alt="Instagram"><div class="instagram-item-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div></a>
+      <a href="https://www.instagram.com/decarlimarmores/" target="_blank" class="instagram-item"><img src="assets/images/ESPAÇO ESSÊNCIA/4.jpg" alt="Instagram"><div class="instagram-item-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div></a>
+      <a href="https://www.instagram.com/decarlimarmores/" target="_blank" class="instagram-item"><img src="assets/images/lazqa/VINIDALLAROSA@-5034.jpg" alt="Instagram"><div class="instagram-item-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div></a>
+      <a href="https://www.instagram.com/decarlimarmores/" target="_blank" class="instagram-item"><img src="assets/images/ESPAÇO ESSÊNCIA/6.jpg" alt="Instagram"><div class="instagram-item-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div></a>
+    </div>
+    <div style="text-align:center;margin-top:40px;" class="reveal">
+      <a href="https://www.instagram.com/decarlimarmores/" target="_blank" rel="noopener" class="btn btn-gold">
+        <span>Seguir no Instagram</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Logo + tagline + social -->
+      <div>
+        <img src="assets/images/logo/LOGO BRANCO.png" class="footer-logo" alt="De Carli">
+        <p class="footer-tagline">Quem ama o que faz,<br>entrega o melhor.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/decarlimarmores/" target="_blank" rel="noopener"
+            style="width:auto;padding:0 12px;font-size:0.68rem;font-weight:600;letter-spacing:0.04em;gap:7px;border-radius:4px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @decarlimarmores
+          </a>
+          <a href="https://www.instagram.com/decarlimarmorespf/" target="_blank" rel="noopener"
+            style="width:auto;padding:0 12px;font-size:0.68rem;font-weight:600;letter-spacing:0.04em;gap:7px;border-radius:4px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @decarlimarmorespf
+          </a>
+          <a href="https://www.instagram.com/lazqabr/" target="_blank" rel="noopener"
+            style="width:auto;padding:0 12px;font-size:0.68rem;font-weight:600;letter-spacing:0.04em;gap:7px;border-radius:4px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @lazqabr
+          </a>
+        </div>
+      </div>
+
+      <!-- Unidades -->
+      <div>
+        <div class="footer-section-title">Unidades</div>
+        <div class="footer-units">
+          <div>
+            <div class="footer-unit-name">Porto Alegre</div>
+            <div class="footer-address">
+              Av. Cear&aacute;, 560 | Bairro S&atilde;o Jo&atilde;o<br>
+              CEP: 90240-510<br>
+              Fone: 51 3061.7530<br>
+              <a href="mailto:decarlipoa@dcmg.com.br">decarlipoa@dcmg.com.br</a><br>
+              Segunda a Sexta: 9:00 &agrave;s 18:00<br>
+              S&aacute;bado: 9:00 &agrave;s 13:00
+            </div>
+          </div>
+          <div>
+            <div class="footer-unit-name">Passo Fundo</div>
+            <div class="footer-address">
+              BR 285 KM 294,8 | Ao lado da UPF<br>
+              CEP: 99050-260<br>
+              Fone: 54 3311.7505<br>
+              <a href="mailto:decarli@dcmg.com.br">decarli@dcmg.com.br</a><br>
+              Segunda a Sexta: 8:30 &agrave;s 12:00 e 13:30 &agrave;s 18:00<br>
+              S&aacute;bado: 8:00 &agrave;s 12:00
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links Uteis -->
+      <div class="footer-col">
+        <h5>Links &Uacute;teis</h5>
+        <nav class="footer-links">
+          <a href="#">Pol&iacute;tica de Privacidade</a>
+          <a href="#">Pol&iacute;tica de Cookies</a>
+          <a href="#">Pol&iacute;tica de Prote&ccedil;&atilde;o de Dados</a>
+          <a href="#">C&oacute;digo de Conduta e &Eacute;tica</a>
+          <a href="assets/pdf/DNA Sustent%C3%A1vel/V1FINAL-Relat%C3%B3rio%20de%20Sustentabilidade%202024%20-%20De%20Carli%20(A4)_20260223_160041_0000.pdf" target="_blank">Pol&iacute;tica de Sustentabilidade</a>
+          <a href="#">Trabalhe Conosco</a>
+        </nav>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 De Carli &ndash; DCMG. Todos os direitos reservados.</span>
+      <span>Desenvolvido com excel&ecirc;ncia.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal de Ambientes -->
+<div class="ambiente-modal" id="ambiente-modal">
+  <button class="ambiente-modal-close" onclick="closeAmbiente()">×</button>
+  <div class="ambiente-modal-inner">
+    <h3 id="ambiente-title"></h3>
+    <div class="ambiente-grid" id="ambiente-grid"></div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox"><button class="lightbox-close">×</button><img id="lightbox-img" class="lightbox-img" src="" alt=""></div>
+
+<script src="js/main.js"></script>
+<script src="js/whatsapp.js"></script>
+<script>
+  // ── Carousel Galeria ──
+  const galeriaState = {};
+  function slideGaleria(trackId, key, dir) {
+    const track = document.getElementById(trackId);
+    if (!track) return;
+    const cards = track.children;
+    const total = cards.length;
+    if (!galeriaState[key]) galeriaState[key] = 0;
+    galeriaState[key] = Math.min(total - 1, Math.max(0, galeriaState[key] + dir));
+    const idx   = galeriaState[key];
+    const cardW = cards[0].getBoundingClientRect().width;
+    track.style.transform = `translateX(-${idx * (cardW + 6)}px)`;
+    const el = document.getElementById('counter-galeria-' + key);
+    if (el) el.textContent = `${idx + 1} / ${total}`;
+  }
+
+  // ── Carousel POA ──
+  const poaState = {};
+  function slidePOA(trackId, dir) {
+    const track = document.getElementById(trackId);
+    if (!track) return;
+    const cards   = track.querySelectorAll('.projeto-card');
+    const total   = cards.length;
+    const w       = window.innerWidth;
+    const visible = w <= 540 ? 1 : w <= 900 ? 2 : 3;
+    const maxIdx  = Math.max(0, total - visible);
+    if (!poaState[trackId]) poaState[trackId] = 0;
+    poaState[trackId] = Math.min(maxIdx, Math.max(0, poaState[trackId] + dir));
+    const idx   = poaState[trackId];
+    const cardW = cards[0].getBoundingClientRect().width;
+    track.style.transform = `translateX(-${idx * (cardW + 6)}px)`;
+    const counterId = 'counter-' + trackId.replace('track-poa-', 'poa-');
+    const el = document.getElementById(counterId);
+    if (el) el.textContent = `${idx + 1} / ${total}`;
+  }
+  document.querySelectorAll('.carousel-wrap').forEach(wrap => {
+    let startX = 0;
+    wrap.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive:true });
+    wrap.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      const trackId = wrap.querySelector('.carousel-track')?.id;
+      if (!trackId) return;
+      if (Math.abs(diff) > 40) slidePOA(trackId, diff > 0 ? 1 : -1);
+    });
+  });
+  window.addEventListener('resize', () => {
+    ['track-poa-res','track-poa-corp','track-poa-const'].forEach(id => {
+      poaState[id] = 0;
+      const t = document.getElementById(id);
+      if (t) t.style.transform = 'translateX(0)';
+    });
+  });
+
+  function filterProj(btn, type) {
+    document.querySelectorAll('.proj-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    ['grid-residencial','grid-corporativo','grid-construtora'].forEach(id => {
+      document.getElementById(id).style.display = 'none';
+    });
+    document.getElementById('grid-' + type).style.display = 'block';
+    // reset posições
+    ['track-poa-res','track-poa-corp','track-poa-const'].forEach(id => {
+      poaState[id] = 0;
+      const t = document.getElementById(id);
+      if (t) t.style.transform = 'translateX(0)';
+    });
+  }
+
+  const ambienteData = {
+    'banheiros':   { title:'Banheiros',    folder:'BANHEIROS',  files:['01 CAPA.jpg','02.jpg','03.jpg','16.jpg'] },
+    'livings':     { title:'Livings',      folder:'LIVING',     files:['01.jpg','11.jpg','12.jpg'] },
+    'lareiras':    { title:'Lareiras',     folder:'LAREIRAS',   files:['01 (2).jpg','03 (1).jpg','05.jpg'] },
+    'lavabos':     { title:'Lavabos',      folder:'LAVABO',     files:[] },
+    'cozinhas':    { title:'Cozinhas',     folder:'COZINHA',    files:['20200827_145434.jpg','20200827_145804.jpg','20200827_160659.jpg'] },
+    'quartos':     { title:'Quartos',      folder:'QUARTO',     files:[] },
+    'area-externa':{ title:'Área Externa', folder:'ÁREA EXTERNA_', files:[] },
+    'lavanderia':  { title:'Lavanderia',   folder:'LAVANDERIA', files:[] },
+    'hall':        { title:'Hall',         folder:'HALL',       files:[] },
+  };
+
+  function openAmbiente(key) {
+    const data = ambienteData[key];
+    document.getElementById('ambiente-title').textContent = data.title;
+    const grid = document.getElementById('ambiente-grid');
+    if (data.files.length > 0) {
+      grid.innerHTML = data.files.map(f =>
+        `<img src="assets/images/Aba de projetos/RESIDENCIAIS/${data.folder}/${f}" alt="${data.title}" data-lightbox="assets/images/Aba de projetos/RESIDENCIAIS/${data.folder}/${f}" onerror="this.style.display='none'">`
+      ).join('');
+    } else {
+      grid.innerHTML = `<p style="color:rgba(255,255,255,0.3);font-style:italic;grid-column:1/-1;padding:40px 0;">Adicione as imagens do ambiente "${data.title}" na pasta correspondente.</p>`;
+    }
+    // reinit lightbox for new images
+    grid.querySelectorAll('[data-lightbox]').forEach(el => {
+      el.addEventListener('click', () => {
+        document.getElementById('lightbox-img').src = el.dataset.lightbox;
+        document.getElementById('lightbox').classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    document.getElementById('ambiente-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeAmbiente() {
+    document.getElementById('ambiente-modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('ambiente-modal').addEventListener('click', e => { if (e.target === document.getElementById('ambiente-modal')) closeAmbiente(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAmbiente(); });
+</script>
+</body>
+</html>

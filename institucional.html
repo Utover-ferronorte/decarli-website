@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Institucional – De Carli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .familia-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .familia-img { aspect-ratio:4/5; overflow:hidden; position:relative; }
+    .familia-img::after { content:''; position:absolute; bottom:-20px; right:-20px; width:60%; height:60%; border:1px solid var(--gold); z-index:0; pointer-events:none; }
+    .familia-img img { position:relative; z-index:1; width:100%;height:100%;object-fit:cover; }
+    .sustain-icon-card { background:rgba(255,255,255,0.04); padding:40px 32px; border-top:2px solid transparent; transition:var(--transition); }
+    .sustain-icon-card:hover { border-top-color:var(--gold); background:rgba(18,47,78,0.08); }
+    .sustain-icon-card svg { color:var(--gold); margin-bottom:20px; }
+    .sustain-icon-card h4 { color:var(--white); margin-bottom:10px; font-size:1rem; }
+    .sustain-icon-card p  { font-size:0.82rem; color:rgba(255,255,255,0.45); }
+    .sustain-icons { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:60px; }
+    .pdf-cta { display:inline-flex; align-items:center; gap:12px; background:rgba(18,47,78,0.15); border:1px solid rgba(18,47,78,0.4); padding:20px 32px; color:var(--gold); font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; font-weight:600; transition:var(--transition); margin-top:32px; cursor:pointer; text-decoration:none; }
+    .pdf-cta:hover { background:rgba(18,47,78,0.25); border-color:var(--gold); }
+    @media(max-width:900px){
+      .familia-grid{grid-template-columns:1fr;gap:40px;}
+      .sustain-icons{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:600px){ .sustain-icons{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+
+<nav class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/images/logo/LOGO BRANCO.png" alt="De Carli"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="institucional.html" class="active">Institucional</a></li>
+      <li><a href="colecoes.html">Coleções</a></li>
+      <li><a href="lazqa.html">Lazqa</a></li>
+      <li><a href="porto-alegre.html">Porto Alegre</a></li>
+      <li><a href="passo-fundo.html">Passo Fundo</a></li>
+    </ul>
+    <button class="nav-hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <button class="nav-mobile-close">×</button>
+  <a href="index.html">Home</a><a href="institucional.html">Institucional</a>
+  <a href="colecoes.html">Coleções</a><a href="lazqa.html">Lazqa</a>
+  <a href="porto-alegre.html">Porto Alegre</a><a href="passo-fundo.html">Passo Fundo</a>
+</div>
+
+<header class="page-header" style="margin-top:var(--nav-h);">
+  <div class="page-header-bg" style="background-image:url('assets/images/Estrutura e fábrica/Empresa_1-scaled.jpg');background-size:cover;background-position:center;"></div>
+  <div class="page-header-overlay"></div>
+  <div class="page-header-content">
+    <nav class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">/</span><span>Institucional</span></nav>
+    <span class="eyebrow">Quem somos</span>
+    <h1>A De Carli</h1>
+  </div>
+</header>
+
+<!-- VÍDEO MANIFESTO -->
+<section style="background:var(--black);padding:120px 0;">
+  <div class="container">
+    <div class="section-intro reveal" style="margin-bottom:60px;">
+      <span class="gold-line center"></span>
+      <span class="eyebrow">Manifesto</span>
+      <h2 style="color:var(--white);">Quem somos, o que fazemos,<br>por que fazemos.</h2>
+    </div>
+    <div class="video-wrap reveal" style="max-width:960px;margin:0 auto;">
+      <div class="video-inline">
+        <video playsinline preload="metadata">
+          <source src="assets/video/Manifesto.mp4" type="video/mp4">
+        </video>
+        <button type="button" class="video-play-overlay" aria-label="Reproduzir manifesto">
+          <span class="video-play-btn"><svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTRUTURA & FÁBRICA -->
+<section class="section" style="background:var(--cream);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;" class="reveal">
+      <div>
+        <span class="gold-line"></span>
+        <span class="eyebrow">Estrutura & Fábrica</span>
+        <h2 style="margin-bottom:28px;">5.000m² de excelência em pedras.</h2>
+        <p style="margin-bottom:20px;">Há mais de quatro décadas, a De Carli transforma matéria-prima bruta em verdadeiras obras de arte mineral. Com instalações próprias que somam mais de 5.000m², oferecemos uma curadoria de pedras naturais raras, nacionais e importadas, para projetos residenciais e corporativos de alto padrão.</p>
+        <p>Atuando em todo o Rio Grande do Sul, somos referência em qualidade, precisão e excelência no atendimento.</p>
+      </div>
+      <div class="masonry" style="columns:2;gap:4px;">
+        <div class="masonry-item" style="margin-bottom:4px;"><img src="assets/images/Estrutura e fábrica/Empresa_1-scaled.jpg" alt="Fábrica De Carli" style="width:100%;display:block;"></div>
+        <div class="masonry-item" style="margin-bottom:4px;"><img src="assets/images/Estrutura e fábrica/Empresa_2.jpg" alt="Fábrica De Carli" style="width:100%;display:block;"></div>
+        <div class="masonry-item" style="margin-bottom:4px;"><img src="assets/images/Estrutura e fábrica/Empresa-06.jpg" alt="Fábrica De Carli" style="width:100%;display:block;"></div>
+        <div class="masonry-item" style="margin-bottom:4px;"><img src="assets/images/Estrutura e fábrica/Empresa_3-scaled.jpg" alt="Fábrica De Carli" style="width:100%;display:block;"></div>
+      </div>
+    </div>
+
+    <!-- Vídeos fábrica -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:80px;" class="reveal">
+      <div class="video-wrap" style="padding-bottom:56.25%;">
+        <video controls playsinline preload="metadata">
+          <source src="assets/video/Estrutura_Fábrica/EstruturaFábrica.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-wrap" style="padding-bottom:56.25%;">
+        <video controls playsinline preload="metadata">
+          <source src="assets/video/Estrutura_Fábrica/FaixadaFábrica.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSÃO VISÃO VALORES -->
+<section style="position:relative;padding:120px 0;">
+  <!-- Imagem de fundo com overlay claro -->
+  <div style="position:absolute;inset:0;z-index:0;">
+    <img src="assets/images/Estrutura e fábrica/DJI_20260417095058_0031_D.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.55);">
+    <div style="position:absolute;inset:0;background:rgba(245,242,237,0.72);"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <!-- Grid 3 cards brancos -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+
+      <!-- Missão -->
+      <div class="reveal" style="background:#fff;padding:48px 40px;box-shadow:0 2px 24px rgba(0,0,0,0.06);">
+        <h3 style="font-family:var(--font-serif);font-size:1.6rem;font-weight:400;color:var(--gold);margin-bottom:28px;">Missão</h3>
+        <p style="font-size:0.95rem;line-height:1.85;color:#555;">Nossa missão é transformar a beleza da pedra em experiências únicas, elevando o ambiente e a vida das pessoas.</p>
+      </div>
+
+      <!-- Visão -->
+      <div class="reveal reveal-delay-1" style="background:#fff;padding:48px 40px;box-shadow:0 2px 24px rgba(0,0,0,0.06);">
+        <h3 style="font-family:var(--font-serif);font-size:1.6rem;font-weight:400;color:var(--gold);margin-bottom:28px;">Visão</h3>
+        <p style="font-size:0.95rem;line-height:1.85;color:#555;">Ser a primeira escolha no mercado de alto padrão, com foco em competitividade e resultados e valorizando as pessoas.</p>
+      </div>
+
+      <!-- Valores -->
+      <div class="reveal reveal-delay-2" style="background:#fff;padding:48px 40px;box-shadow:0 2px 24px rgba(0,0,0,0.06);">
+        <h3 style="font-family:var(--font-serif);font-size:1.6rem;font-weight:400;color:var(--gold);margin-bottom:28px;">Valores</h3>
+        <ul style="display:flex;flex-direction:column;gap:9px;list-style:none;padding:0;">
+          <li style="font-size:0.88rem;line-height:1.6;color:#555;">Foco no cliente e nos resultados</li>
+          <li style="font-size:0.88rem;line-height:1.6;color:#555;">Qualidade em tudo que faz</li>
+          <li style="font-size:0.88rem;line-height:1.6;color:#555;">Trabalho em equipe e comprometimento</li>
+          <li style="font-size:0.88rem;line-height:1.6;color:#555;">Capacidade de mudança e desenvolvimento das pessoas</li>
+          <li style="font-size:0.88rem;line-height:1.6;color:#555;">Ética e transparência nos relacionamentos</li>
+          <li style="font-size:0.88rem;line-height:1.6;color:#555;">Ambiente seguro, organização e respeito com a segurança</li>
+          <li style="font-size:0.88rem;line-height:1.6;color:#555;">Sustentabilidade ambiental</li>
+          <li style="font-size:0.88rem;line-height:1.6;color:#555;">Inovação em processos e produtos</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LINHA DO TEMPO -->
+<section class="section" style="background:var(--dark);overflow:hidden;">
+  <div class="container">
+    <div class="section-intro reveal" style="margin-bottom:80px;">
+      <span class="gold-line center"></span>
+      <span class="eyebrow">Nossa Jornada</span>
+      <h2 style="color:var(--white);">40 anos de história</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-body"><div class="timeline-year">1985</div><div class="timeline-title" style="color:var(--gold-light);">Início de tudo</div><div class="timeline-desc" style="color:rgba(255,255,255,0.45);">Nasce a loja De Carli em Nova Prata / RS</div></div>
+        <div class="timeline-center"><div class="timeline-dot"></div></div>
+        <div class="timeline-empty"></div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-empty"></div>
+        <div class="timeline-center"><div class="timeline-dot"></div></div>
+        <div class="timeline-body"><div class="timeline-year">1992</div><div class="timeline-title" style="color:var(--gold-light);">Mudanças</div><div class="timeline-desc" style="color:rgba(255,255,255,0.45);">A loja mudou-se para a cidade de Passo Fundo / RS</div></div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-body"><div class="timeline-year">2006</div><div class="timeline-title" style="color:var(--gold-light);">Expansão</div><div class="timeline-desc" style="color:rgba(255,255,255,0.45);">Instalação do escritório comercial da De Carli em Porto Alegre / RS</div></div>
+        <div class="timeline-center"><div class="timeline-dot"></div></div>
+        <div class="timeline-empty"></div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-empty"></div>
+        <div class="timeline-center"><div class="timeline-dot"></div></div>
+        <div class="timeline-body"><div class="timeline-year">2009</div><div class="timeline-title" style="color:var(--gold-light);">Crescimento</div><div class="timeline-desc" style="color:rgba(255,255,255,0.45);">Implementação da fábrica de corte de mármore e novo escritório com showroom em Porto Alegre / RS</div></div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-body"><div class="timeline-year">2022</div><div class="timeline-title" style="color:var(--gold-light);">Um novo olhar</div><div class="timeline-desc" style="color:rgba(255,255,255,0.45);">Inauguração do novo espaço showroom da De Carli e do Espaço Essência em Porto Alegre / RS</div></div>
+        <div class="timeline-center"><div class="timeline-dot"></div></div>
+        <div class="timeline-empty"></div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-empty"></div>
+        <div class="timeline-center"><div class="timeline-dot"></div></div>
+        <div class="timeline-body"><div class="timeline-year">2024</div><div class="timeline-title" style="color:var(--gold-light);">Novos horizontes</div><div class="timeline-desc" style="color:rgba(255,255,255,0.45);">Emissão do primeiro relatório de sustentabilidade (ano base 2023)</div></div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-body"><div class="timeline-year">2025</div><div class="timeline-title" style="color:var(--gold-light);">Comemoração</div><div class="timeline-desc" style="color:rgba(255,255,255,0.45);">Marco de 40 anos de existência da marca De Carli</div></div>
+        <div class="timeline-center"><div class="timeline-dot"></div></div>
+        <div class="timeline-empty"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DNA SUSTENTÁVEL -->
+<section style="background:var(--dark);padding:120px 0;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:100px;align-items:center;" class="reveal">
+      <div>
+        <span class="gold-line"></span>
+        <span class="eyebrow">Compromisso com o Planeta</span>
+        <h2 style="color:var(--white);margin-bottom:28px;">DNA Sustentável</h2>
+        <p style="color:rgba(255,255,255,0.55);margin-bottom:20px;">Pensando no bem-estar dos clientes e no meio em que vivemos, a De Carli adotou ações de sustentabilidade, utilizando equipamentos com tecnologia de ponta que consomem menos energia elétrica, diminuição de emissão de partículas, diminuição da emissão e dissipação da poeira que causam prejuízo à saúde e ao meio ambiente, pois nossas máquinas trabalham com ferramentas diamantadas em conjunto com água.</p>
+        <p style="color:rgba(255,255,255,0.55);margin-bottom:40px;">Inclusive toda água utilizada para esse processo é reaproveitada, por meio de um sistema de coleta, que irá filtrar e tratar a água voltando assim à nossa linha de produção.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <a href="assets/pdf/DNA Sustentável/V1FINAL-Relatório de Sustentabilidade 2024 - De Carli (A4)_20260223_160041_0000.pdf" target="_blank" rel="noopener" class="pdf-cta">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            Relatório de Sustentabilidade 2024 (A4)
+          </a>
+          <a href="assets/pdf/DNA Sustentável/Relatório de Sustentabilidade 2025 - De Carli_20260331_150315_0000.pdf" target="_blank" rel="noopener" class="pdf-cta">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            Relatório de Sustentabilidade 2025
+          </a>
+          <a href="assets/pdf/DNA Sustentável/Pocket 2025 - Relatório de Sustentabilidade (21 x 12 cm)_20260331_150136_0000.pdf" target="_blank" rel="noopener" class="pdf-cta">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            Pocket Sustentabilidade 2025
+          </a>
+        </div>
+      </div>
+      <div class="sustain-icons">
+        <div class="sustain-icon-card"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><h4>Tecnologia de Ponta</h4><p>Equipamentos de última geração com menor consumo energético.</p></div>
+        <div class="sustain-icon-card"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg><h4>Reuso de Água</h4><p>100% da água utilizada no processo é filtrada e reutilizada.</p></div>
+        <div class="sustain-icon-card"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg><h4>Impacto Reduzido</h4><p>Diminuição da emissão de partículas e poeira no ambiente.</p></div>
+        <div class="sustain-icon-card"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><h4>Relatório ESG</h4><p>Primeiro relatório de sustentabilidade publicado em 2024.</p></div>
+        <div class="sustain-icon-card"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><h4>Responsabilidade</h4><p>Compromisso genuíno com o meio ambiente e as pessoas.</p></div>
+        <div class="sustain-icon-card"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg><h4>Inovação</h4><p>Ferramentas diamantadas e processos industriais modernos.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Logo + tagline + social -->
+      <div>
+        <img src="assets/images/logo/LOGO BRANCO.png" class="footer-logo" alt="De Carli">
+        <p class="footer-tagline">Quem ama o que faz,<br>entrega o melhor.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/decarlimarmores/" target="_blank" rel="noopener"
+            style="width:auto;padding:0 12px;font-size:0.68rem;font-weight:600;letter-spacing:0.04em;gap:7px;border-radius:4px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @decarlimarmores
+          </a>
+          <a href="https://www.instagram.com/decarlimarmorespf/" target="_blank" rel="noopener"
+            style="width:auto;padding:0 12px;font-size:0.68rem;font-weight:600;letter-spacing:0.04em;gap:7px;border-radius:4px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @decarlimarmorespf
+          </a>
+          <a href="https://www.instagram.com/lazqabr/" target="_blank" rel="noopener"
+            style="width:auto;padding:0 12px;font-size:0.68rem;font-weight:600;letter-spacing:0.04em;gap:7px;border-radius:4px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @lazqabr
+          </a>
+        </div>
+      </div>
+
+      <!-- Unidades -->
+      <div>
+        <div class="footer-section-title">Unidades</div>
+        <div class="footer-units">
+          <div>
+            <div class="footer-unit-name">Porto Alegre</div>
+            <div class="footer-address">
+              Av. Cear&aacute;, 560 | Bairro S&atilde;o Jo&atilde;o<br>
+              CEP: 90240-510<br>
+              Fone: 51 3061.7530<br>
+              <a href="mailto:decarlipoa@dcmg.com.br">decarlipoa@dcmg.com.br</a><br>
+              Segunda a Sexta: 9:00 &agrave;s 18:00<br>
+              S&aacute;bado: 9:00 &agrave;s 13:00
+            </div>
+          </div>
+          <div>
+            <div class="footer-unit-name">Passo Fundo</div>
+            <div class="footer-address">
+              BR 285 KM 294,8 | Ao lado da UPF<br>
+              CEP: 99050-260<br>
+              Fone: 54 3311.7505<br>
+              <a href="mailto:decarli@dcmg.com.br">decarli@dcmg.com.br</a><br>
+              Segunda a Sexta: 8:30 &agrave;s 12:00 e 13:30 &agrave;s 18:00<br>
+              S&aacute;bado: 8:00 &agrave;s 12:00
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links Uteis -->
+      <div class="footer-col">
+        <h5>Links &Uacute;teis</h5>
+        <nav class="footer-links">
+          <a href="#">Pol&iacute;tica de Privacidade</a>
+          <a href="#">Pol&iacute;tica de Cookies</a>
+          <a href="#">Pol&iacute;tica de Prote&ccedil;&atilde;o de Dados</a>
+          <a href="#">C&oacute;digo de Conduta e &Eacute;tica</a>
+          <a href="assets/pdf/DNA Sustent%C3%A1vel/V1FINAL-Relat%C3%B3rio%20de%20Sustentabilidade%202024%20-%20De%20Carli%20(A4)_20260223_160041_0000.pdf" target="_blank">Pol&iacute;tica de Sustentabilidade</a>
+          <a href="#">Trabalhe Conosco</a>
+        </nav>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 De Carli &ndash; DCMG. Todos os direitos reservados.</span>
+      <span>Desenvolvido com excel&ecirc;ncia.</span>
+    </div>
+  </div>
+</footer>
+<div class="lightbox" id="lightbox"><button class="lightbox-close">×</button><img id="lightbox-img" class="lightbox-img" src="" alt=""></div>
+<script src="js/main.js"></script>
+<script src="js/whatsapp.js"></script>
+</body>
+</html>

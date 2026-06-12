@@ -1,0 +1,15 @@
+# Raw camera files (não suportados pelo browser)
+*.CR3
+*.cr3
+*.RAW
+*.raw
+*.ARW
+*.arw
+
+# Arquivos com nome muito longo (WhatsApp)
+assets/images/Aba de projetos/RESIDENCIAIS/ÁREA GOURMET/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini

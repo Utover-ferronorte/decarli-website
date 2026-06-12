@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De Carli – Pedras Naturais de Alto Padrão</title>
+  <meta name="description" content="Há mais de 40 anos transformando pedras naturais em experiências únicas. Mármores, quartzitos, granitos e superfícies industrializadas para projetos de alto padrão.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      background: var(--gold);
+    }
+    .stat-item {
+      padding: 50px 40px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem,4vw,4rem);
+      color: var(--white);
+      display: block;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+    }
+    .colecoes-preview { background: var(--dark); padding: 80px 0; }
+    .colecoes-preview .section-intro h2 { color: var(--white); }
+    .colecoes-preview .section-intro p  { color: rgba(255,255,255,0.5); }
+
+    .colecoes-carousel .carousel-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+    .colecoes-carousel .carousel-track {
+      display: flex;
+      gap: 6px;
+      transition: transform 0.65s cubic-bezier(0.25,0.46,0.45,0.94);
+      will-change: transform;
+    }
+    .colecoes-carousel .collection-card {
+      flex: 0 0 calc(25% - 5px);
+      min-width: 0;
+      height: 240px;
+      aspect-ratio: unset;
+    }
+    .colecoes-carousel .collection-card-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .colecoes-carousel .collection-card-overlay { padding: 20px; }
+    .colecoes-carousel .collection-card-title {
+      font-size: clamp(0.95rem, 1.5vw, 1.25rem);
+      margin-bottom: 8px;
+    }
+    .colecoes-carousel .carousel-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 28px;
+    }
+    .colecoes-carousel .carousel-arrow {
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(201,169,110,0.35);
+      background: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+    .colecoes-carousel .carousel-arrow:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+    .colecoes-carousel .carousel-arrow svg { stroke: var(--gold); transition: stroke var(--transition); }
+    .colecoes-carousel .carousel-arrow:hover svg { stroke: var(--white); }
+    .colecoes-carousel .carousel-counter {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.4);
+      min-width: 60px;
+      text-align: center;
+    }
+    @media (max-width: 900px) {
+      .colecoes-carousel .collection-card { flex: 0 0 calc(50% - 3px); height: 220px; }
+    }
+    @media (max-width: 540px) {
+      .colecoes-carousel .collection-card { flex: 0 0 calc(82% - 3px); height: 200px; }
+    }
+
+    .lazqa-band {
+      position: relative;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--black);
+    }
+    .lazqa-band-media {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+      opacity: 0.45;
+    }
+    .lazqa-band-media img { width:100%;height:100%;object-fit:cover; }
+    .lazqa-band-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right,rgba(0,0,0,0.88) 30%,rgba(0,0,0,0.45) 100%);
+    }
+    .lazqa-content {
+      position: relative;
+      z-index: 2;
+      margin-left: 5%;
+      max-width: 640px;
+    }
+    .lazqa-logo-text {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem,7vw,7rem);
+      color: var(--white);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      line-height: 1;
+      margin-bottom: 32px;
+    }
+    .lazqa-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.9;
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+    @media(max-width:768px){
+      .stats-strip { grid-template-columns: 1fr 1fr; }
+      .stat-item { border-right:none; border-bottom:1px solid rgba(255,255,255,0.15); }
+      .lazqa-band-media { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logo/LOGO BRANCO.png" alt="De Carli">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="institucional.html">Institucional</a></li>
+      <li><a href="colecoes.html">Coleções</a></li>
+      <li><a href="lazqa.html">Lazqa</a></li>
+      <li><a href="porto-alegre.html">Porto Alegre</a></li>
+      <li><a href="passo-fundo.html">Passo Fundo</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <button class="nav-mobile-close">×</button>
+  <a href="index.html">Home</a>
+  <a href="institucional.html">Institucional</a>
+  <a href="colecoes.html">Coleções</a>
+  <a href="lazqa.html">Lazqa</a>
+  <a href="porto-alegre.html">Porto Alegre</a>
+  <a href="passo-fundo.html">Passo Fundo</a>
+</div>
+
+<!-- ═══ HERO BANNER ═══ -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active">
+      <div class="hero-slide-bg" style="background-image:url('assets/images/banner principal/IMG_2590.jpg');background-size:cover;background-position:center;"></div>
+    </div>
+    <div class="hero-slide">
+      <div class="hero-slide-bg" style="background-image:url('assets/images/banner principal/IMG_2591.jpg');background-size:cover;background-position:center;"></div>
+    </div>
+    <div class="hero-slide">
+      <div class="hero-slide-bg" style="background-image:url('assets/images/ESPAÇO ESSÊNCIA/1. CAPA.jpg');background-size:cover;background-position:center;"></div>
+    </div>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <span class="eyebrow">Pedras Naturais · Desde 1985</span>
+    <img src="assets/images/logo/LOGO BRANCO.png" alt="De Carli" style="height:70px;width:auto;object-fit:contain;margin-bottom:24px;display:block;">
+    <p class="hero-subtitle" style="color:rgba(255,255,255,0.85);font-style:italic;font-size:clamp(1rem,1.8vw,1.3rem);margin-bottom:40px;line-height:1.7;">Quem ama o que faz,<br>entrega o melhor.</p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;">
+      <a href="colecoes.html" class="btn btn-gold">
+        <span>Explorar Coleções</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="institucional.html" class="btn btn-white"><span>Nossa História</span></a>
+    </div>
+  </div>
+
+  <div class="hero-nav-dots">
+    <div class="hero-dot active"></div>
+    <div class="hero-dot"></div>
+    <div class="hero-dot"></div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Rolar</span>
+  </div>
+</section>
+
+<!-- ═══ STATS ═══ -->
+<div class="stats-strip">
+  <div class="stat-item"><span class="stat-num">40+</span><span class="stat-label">Anos de Experiência</span></div>
+  <div class="stat-item"><span class="stat-num">5.000</span><span class="stat-label">m² de Instalações</span></div>
+  <div class="stat-item"><span class="stat-num">2</span><span class="stat-label">Showrooms no RS</span></div>
+  <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Alto Padrão</span></div>
+</div>
+
+<!-- ═══ COLEÇÕES EXCLUSIVAS ═══ -->
+<section class="colecoes-preview">
+  <div class="container">
+    <div class="section-intro reveal" style="margin-bottom:48px;">
+      <span class="gold-line center"></span>
+      <span class="eyebrow">Materiais Nobres</span>
+      <h2>Coleções Exclusivas</h2>
+      <p style="color:rgba(255,255,255,0.5);">Uma curadoria exclusiva de materiais nobres da natureza.</p>
+    </div>
+
+    <div class="colecoes-carousel reveal">
+      <div class="carousel-wrap">
+        <div class="carousel-track" id="track-colecoes">
+          <div class="collection-card">
+            <div class="collection-card-bg">
+              <img src="assets/images/MÁRMORES/Statuario.jpg" alt="Mármores Nobres">
+            </div>
+            <div class="collection-card-overlay">
+              <span class="collection-card-label">Natural Collection</span>
+              <h3 class="collection-card-title">Noble Marbles</h3>
+              <a href="colecoes.html#marmore" class="collection-card-link">Ver coleção <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+          <div class="collection-card">
+            <div class="collection-card-bg">
+              <img src="assets/images/QUARTZITOS/MONT BLANC.jpg" alt="Quartzitos Exóticos">
+            </div>
+            <div class="collection-card-overlay">
+              <span class="collection-card-label">Natural Collection</span>
+              <h3 class="collection-card-title">Exotic Quartzites</h3>
+              <a href="colecoes.html#quartzito" class="collection-card-link">Ver coleção <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+          <div class="collection-card">
+            <div class="collection-card-bg">
+              <img src="assets/images/GRANITOS/AZUL BAHIA.jpg" alt="Granitos">
+            </div>
+            <div class="collection-card-overlay">
+              <span class="collection-card-label">Natural Collection</span>
+              <h3 class="collection-card-title">Granite Selection</h3>
+              <a href="colecoes.html#granito" class="collection-card-link">Ver coleção <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+          <div class="collection-card">
+            <div class="collection-card-bg">
+              <img src="assets/images/LIMESTONE/BATEIG BLUE.jpg" alt="Limestones">
+            </div>
+            <div class="collection-card-overlay">
+              <span class="collection-card-label">Natural Collection</span>
+              <h3 class="collection-card-title">European Limestones</h3>
+              <a href="colecoes.html#limestone" class="collection-card-link">Ver coleção <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+          <div class="collection-card">
+            <div class="collection-card-bg">
+              <img src="assets/images/EURO TERRAZZO/antique.jpg" alt="Euro Terrazzo">
+            </div>
+            <div class="collection-card-overlay">
+              <span class="collection-card-label">Industrial Surfaces</span>
+              <h3 class="collection-card-title">Italian Terrazzo</h3>
+              <a href="colecoes.html" class="collection-card-link">Ver coleção <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+          <div class="collection-card">
+            <div class="collection-card-bg">
+              <img src="assets/images/LAMINAM/LAMINAM BLEND.jpg" alt="Laminam">
+            </div>
+            <div class="collection-card-overlay">
+              <span class="collection-card-label">Industrial Surfaces</span>
+              <h3 class="collection-card-title">Italian Laminam</h3>
+              <a href="colecoes.html" class="collection-card-link">Ver coleção <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+          <div class="collection-card">
+            <div class="collection-card-bg">
+              <img src="assets/images/DEKTON/DEKTON ARGA.jpg" alt="Dekton">
+            </div>
+            <div class="collection-card-overlay">
+              <span class="collection-card-label">Industrial Surfaces</span>
+              <h3 class="collection-card-title">Dekton Contemporary</h3>
+              <a href="colecoes.html" class="collection-card-link">Ver coleção <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+          <div class="collection-card">
+            <div class="collection-card-bg">
+              <img src="assets/images/SILESTONE/concrete pulse.jpg" alt="Silestone">
+            </div>
+            <div class="collection-card-overlay">
+              <span class="collection-card-label">Industrial Surfaces</span>
+              <h3 class="collection-card-title">Silestone Premium</h3>
+              <a href="colecoes.html" class="collection-card-link">Ver coleção <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-arrow" onclick="slideColecoes(-1)" aria-label="Anterior">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <span class="carousel-counter" id="counter-colecoes">1 / 8</span>
+        <button class="carousel-arrow" onclick="slideColecoes(1)" aria-label="Próximo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:48px;" class="reveal">
+      <a href="colecoes.html" class="btn btn-gold">
+        <span>Ver Todas as Coleções</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INSTITUCIONAL SPLIT ═══ -->
+<div class="split">
+  <div class="split-img">
+    <img src="assets/images/Estrutura e fábrica/Empresa_1-scaled.jpg" alt="Fábrica De Carli">
+  </div>
+  <div class="split-body">
+    <span class="gold-line"></span>
+    <span class="eyebrow">Sobre a De Carli</span>
+    <h2 style="margin-bottom:24px;">Há mais de quatro décadas, transformamos pedras em arte.</h2>
+    <p style="margin-bottom:32px;">Com instalações próprias que somam mais de 5.000m², oferecemos uma curadoria de pedras naturais raras, nacionais e importadas, para projetos residenciais e corporativos de alto padrão. Atuando em todo o Rio Grande do Sul, somos referência em qualidade, precisão e excelência no atendimento.</p>
+    <a href="institucional.html" class="btn btn-gold">
+      <span>Nossa História</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- ═══ LAZQA BAND ═══ -->
+<section class="lazqa-band">
+  <div class="lazqa-band-media">
+    <img src="assets/images/lazqa/VINIDALLAROSA@-5034.jpg" alt="Lazqa">
+    <img src="assets/images/lazqa/4B496B19-1343-4F38-8586-979358D5E317.jpg" alt="Lazqa">
+    <img src="assets/images/lazqa/VINIDALLAROSA@-5032 (1).jpg" alt="Lazqa">
+  </div>
+  <div class="lazqa-band-overlay"></div>
+  <div class="lazqa-content reveal">
+    <span class="eyebrow">Design Sustentável</span>
+    <img src="assets/images/logo/logo - lazqa.png" alt="Lazqa" style="height:60px;width:auto;object-fit:contain;margin-bottom:24px;filter:brightness(0) invert(1);opacity:0.9;">
+    <p class="lazqa-sub">Uma collab transformadora entre Poz Design e De Carli. Peças exclusivas feitas do reaproveitamento consciente de sobras de pedras nobres.</p>
+    <a href="lazqa.html" class="btn btn-gold">
+      <span>Conhecer a Lazqa</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ UNIDADES ═══ -->
+<div class="unit-nav">
+  <a href="porto-alegre.html" class="unit-btn">
+    <div class="unit-btn-bg" style="background-image:url('assets/images/banner principal/IMG_2590.jpg');background-size:cover;background-position:center;"></div>
+    <div class="unit-btn-overlay"></div>
+    <div class="unit-btn-content">
+      <span class="eyebrow">Showroom</span>
+      <h2>De Carli<br>Porto Alegre</h2>
+      <span class="btn btn-gold" style="pointer-events:none;">
+        <span>Visitar Unidade</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </div>
+  </a>
+  <a href="passo-fundo.html" class="unit-btn">
+    <div class="unit-btn-bg" style="background-image:url('assets/images/Estrutura e fábrica/DJI_20260417095024_0030_D.jpg');background-size:cover;background-position:center;"></div>
+    <div class="unit-btn-overlay"></div>
+    <div class="unit-btn-content">
+      <span class="eyebrow">Fábrica & Showroom</span>
+      <h2>De Carli<br>Passo Fundo</h2>
+      <span class="btn btn-gold" style="pointer-events:none;">
+        <span>Visitar Unidade</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </div>
+  </a>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Logo + tagline + social -->
+      <div>
+        <img src="assets/images/logo/LOGO BRANCO.png" class="footer-logo" alt="De Carli">
+        <p class="footer-tagline">Quem ama o que faz,<br>entrega o melhor.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/decarlimarmores/" target="_blank" rel="noopener"
+            style="width:auto;padding:0 12px;font-size:0.68rem;font-weight:600;letter-spacing:0.04em;gap:7px;border-radius:4px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @decarlimarmores
+          </a>
+          <a href="https://www.instagram.com/decarlimarmorespf/" target="_blank" rel="noopener"
+            style="width:auto;padding:0 12px;font-size:0.68rem;font-weight:600;letter-spacing:0.04em;gap:7px;border-radius:4px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @decarlimarmorespf
+          </a>
+          <a href="https://www.instagram.com/lazqabr/" target="_blank" rel="noopener"
+            style="width:auto;padding:0 12px;font-size:0.68rem;font-weight:600;letter-spacing:0.04em;gap:7px;border-radius:4px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @lazqabr
+          </a>
+        </div>
+      </div>
+
+      <!-- Unidades -->
+      <div>
+        <div class="footer-section-title">Unidades</div>
+        <div class="footer-units">
+          <div>
+            <div class="footer-unit-name">Porto Alegre</div>
+            <div class="footer-address">
+              Av. Cear&aacute;, 560 | Bairro S&atilde;o Jo&atilde;o<br>
+              CEP: 90240-510<br>
+              Fone: 51 3061.7530<br>
+              <a href="mailto:decarlipoa@dcmg.com.br">decarlipoa@dcmg.com.br</a><br>
+              Segunda a Sexta: 9:00 &agrave;s 18:00<br>
+              S&aacute;bado: 9:00 &agrave;s 13:00
+            </div>
+          </div>
+          <div>
+            <div class="footer-unit-name">Passo Fundo</div>
+            <div class="footer-address">
+              BR 285 KM 294,8 | Ao lado da UPF<br>
+              CEP: 99050-260<br>
+              Fone: 54 3311.7505<br>
+              <a href="mailto:decarli@dcmg.com.br">decarli@dcmg.com.br</a><br>
+              Segunda a Sexta: 8:30 &agrave;s 12:00 e 13:30 &agrave;s 18:00<br>
+              S&aacute;bado: 8:00 &agrave;s 12:00
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links Uteis -->
+      <div class="footer-col">
+        <h5>Links &Uacute;teis</h5>
+        <nav class="footer-links">
+          <a href="#">Pol&iacute;tica de Privacidade</a>
+          <a href="#">Pol&iacute;tica de Cookies</a>
+          <a href="#">Pol&iacute;tica de Prote&ccedil;&atilde;o de Dados</a>
+          <a href="#">C&oacute;digo de Conduta e &Eacute;tica</a>
+          <a href="assets/pdf/DNA Sustent%C3%A1vel/V1FINAL-Relat%C3%B3rio%20de%20Sustentabilidade%202024%20-%20De%20Carli%20(A4)_20260223_160041_0000.pdf" target="_blank">Pol&iacute;tica de Sustentabilidade</a>
+          <a href="#">Trabalhe Conosco</a>
+        </nav>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 De Carli &ndash; DCMG. Todos os direitos reservados.</span>
+      <span>Desenvolvido com excel&ecirc;ncia.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close">×</button>
+  <img id="lightbox-img" class="lightbox-img" src="" alt="">
+</div>
+<script src="js/main.js"></script>
+<script>
+  (function () {
+    let colecoesIdx = 0;
+    const GAP = 6;
+
+    function getVisible() {
+      const w = window.innerWidth;
+      if (w <= 540) return 1;
+      if (w <= 900) return 2;
+      return 4;
+    }
+
+    function updateColecoes() {
+      const track = document.getElementById('track-colecoes');
+      if (!track) return;
+      const cards = track.querySelectorAll('.collection-card');
+      if (!cards.length) return;
+      const visible = getVisible();
+      const maxIdx = Math.max(0, cards.length - visible);
+      colecoesIdx = Math.min(maxIdx, Math.max(0, colecoesIdx));
+      const cardW = cards[0].getBoundingClientRect().width;
+      track.style.transform = 'translateX(-' + (colecoesIdx * (cardW + GAP)) + 'px)';
+      const el = document.getElementById('counter-colecoes');
+      if (el) el.textContent = (colecoesIdx + 1) + ' / ' + (maxIdx + 1);
+    }
+
+    window.slideColecoes = function (dir) {
+      const track = document.getElementById('track-colecoes');
+      if (!track) return;
+      const cards = track.querySelectorAll('.collection-card');
+      const visible = getVisible();
+      const maxIdx = Math.max(0, cards.length - visible);
+      colecoesIdx = Math.min(maxIdx, Math.max(0, colecoesIdx + dir));
+      updateColecoes();
+    };
+
+    const wrap = document.querySelector('.colecoes-carousel .carousel-wrap');
+    if (wrap) {
+      let startX = 0;
+      wrap.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+      wrap.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) slideColecoes(diff > 0 ? 1 : -1);
+      });
+    }
+
+    window.addEventListener('resize', () => {
+      colecoesIdx = 0;
+      updateColecoes();
+    });
+
+    updateColecoes();
+  })();
+</script>
+<script src="js/whatsapp.js"></script>
+</body>
+</html>

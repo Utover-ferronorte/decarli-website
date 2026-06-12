@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coleções Exclusivas – De Carli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .cat-intro-band { display:grid; grid-template-columns:1fr 1.8fr; gap:80px; align-items:start; padding-bottom:60px; }
+    .cat-desc { max-width:760px; font-size:0.95rem; line-height:1.9; color:var(--mid); margin-top:16px; }
+    .cat-section-light { background:var(--cream); }
+    .cat-section-dark  { background:var(--dark); }
+    .cat-section-dark h2,.cat-section-dark h3 { color:var(--white); }
+    .cat-section-dark .cat-desc { color:rgba(255,255,255,0.5); }
+    .stones-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:3px; }
+    .stones-4 .stone-card { aspect-ratio:2/3; position:relative; overflow:hidden; cursor:pointer; background:var(--dark-mid); }
+    .stones-4 .stone-card img { width:100%;height:100%;object-fit:cover; transition:transform 0.7s ease; }
+    .stones-4 .stone-card:hover img { transform:scale(1.06); }
+    .stone-name-tag {
+      position:absolute; bottom:0; left:0; right:0;
+      background:linear-gradient(to top,rgba(0,0,0,0.85),transparent);
+      padding:40px 20px 18px;
+    }
+    .stone-name-tag h5 { font-family:var(--font-serif); font-size:1rem; color:var(--white); margin-bottom:2px; font-weight:400; }
+    .stone-name-tag span { font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); }
+    .cat-badge { display:inline-block; font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; padding:6px 16px; border:1px solid var(--gold); color:var(--gold); margin-bottom:20px; }
+    @media(max-width:1100px){ .stones-4{grid-template-columns:repeat(3,1fr);} }
+    @media(max-width:900px){ .cat-intro-band{grid-template-columns:1fr;gap:40px;} .stones-4{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:480px){ .stones-4{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+
+<nav class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/images/logo/LOGO BRANCO.png" alt="De Carli"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="institucional.html">Institucional</a></li>
+      <li><a href="colecoes.html" class="active">Coleções</a></li>
+      <li><a href="lazqa.html">Lazqa</a></li>
+      <li><a href="porto-alegre.html">Porto Alegre</a></li>
+      <li><a href="passo-fundo.html">Passo Fundo</a></li>
+    </ul>
+    <button class="nav-hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <button class="nav-mobile-close">×</button>
+  <a href="index.html">Home</a><a href="institucional.html">Institucional</a>
+  <a href="colecoes.html">Coleções</a><a href="lazqa.html">Lazqa</a>
+  <a href="porto-alegre.html">Porto Alegre</a><a href="passo-fundo.html">Passo Fundo</a>
+</div>
+
+<header class="page-header" style="margin-top:var(--nav-h);">
+  <div class="page-header-bg" style="background-image:url('assets/images/MÁRMORES/Statuario.jpg');background-size:cover;background-position:center;"></div>
+  <div class="page-header-overlay"></div>
+  <div class="page-header-content">
+    <nav class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">/</span><span>Coleções</span></nav>
+    <span class="eyebrow">Curadoria de Materiais Nobres</span>
+    <h1>Coleções Exclusivas</h1>
+  </div>
+</header>
+
+<!-- Tabs nav -->
+<div style="background:var(--dark);position:sticky;top:var(--nav-h);z-index:90;border-bottom:1px solid rgba(18,47,78,0.2);">
+  <div class="container">
+    <div class="tabs-nav" style="margin-bottom:0;border-bottom:none;overflow-x:auto;white-space:nowrap;">
+      <button class="tab-btn active" data-tab="natural">Natural Collection</button>
+      <button class="tab-btn" data-tab="industrial">Industrial Surfaces</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ NATURAL COLLECTION ═══ -->
+<div class="tab-panel active" id="natural">
+
+  <!-- MÁRMORES -->
+  <section class="cat-section-light section" id="marmore">
+    <div class="container">
+      <div class="cat-intro-band reveal">
+        <div>
+          <span class="gold-line"></span>
+          <span class="cat-badge">Natural Collection</span>
+          <h2>Noble Marbles</h2>
+          <p style="font-size:0.65rem;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;margin-top:6px;">Mármores Nobres</p>
+        </div>
+        <p class="cat-desc">Há milhões de anos, antigos mares tropicais foram responsáveis por gerar rochas sedimentares carbonáticas. Quando estas rochas são submetidas a condições de alta temperatura e pressão provocadas por eventos geológicos, seus minerais são modificados, originando os mármores pelo processo de metamorfismo. O aquecimento e deformação gerados pela ação metamórfica produzem a estética de marca registrada dos mármores, como as faixas de cores graciosamente fluidas.</p>
+      </div>
+      <div class="stones-4 reveal">
+        <div class="stone-card"><img src="assets/images/MÁRMORES/Statuario.jpg" alt="Statuário"><div class="stone-name-tag"><h5>Statuário</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/Calacata Italiano.jpg" alt="Calacata Italiano"><div class="stone-name-tag"><h5>Calacata Italiano</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/CALACATA ANTICO.jpg" alt="Calacata Antico"><div class="stone-name-tag"><h5>Calacata Antico</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/CALACATTA MUNCH.jpg" alt="Calacatta Munch"><div class="stone-name-tag"><h5>Calacatta Munch</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/AURORA GOLD.jpg" alt="Aurora Gold"><div class="stone-name-tag"><h5>Aurora Gold</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/AURORA WHITE.jpg" alt="Aurora White"><div class="stone-name-tag"><h5>Aurora White</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/AURORA GREY.jpg" alt="Aurora Grey"><div class="stone-name-tag"><h5>Aurora Grey</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/biancatto.jpg" alt="Biancatto"><div class="stone-name-tag"><h5>Biancatto</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/bianco-aurelius-decolores.jpg" alt="Bianco Aurelius"><div class="stone-name-tag"><h5>Bianco Aurelius</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/Botticino.jpg" alt="Botticino"><div class="stone-name-tag"><h5>Botticino</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/BRANCO-MICHELANGELO-CALACATTA-scaled.jpg" alt="Branco Michelangelo Calacatta"><div class="stone-name-tag"><h5>Branco Michelangelo Calacatta</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/Crema Marfil.jpg" alt="Crema Marfil"><div class="stone-name-tag"><h5>Crema Marfil</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/dolce-vita-decolores.jpg" alt="Dolce Vita"><div class="stone-name-tag"><h5>Dolce Vita</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/Fior Di Bosco - Decolores (1).jpg" alt="Fior Di Bosco"><div class="stone-name-tag"><h5>Fior Di Bosco</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/fossile-brown-decolores.jpg" alt="Fossile Brown"><div class="stone-name-tag"><h5>Fossile Brown</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/GRIGGIO CLOSE 8664 2.jpg" alt="Griggio"><div class="stone-name-tag"><h5>Griggio</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/macchia-vecchia-importado-decolores.jpg" alt="Macchia Vecchia Importado"><div class="stone-name-tag"><h5>Macchia Vecchia Importado</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/macchia-vecchia-nacional-decolores.jpg" alt="Macchia Vecchia Nacional"><div class="stone-name-tag"><h5>Macchia Vecchia Nacional</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/marmore-carrara.jpg" alt="Mármore Carrara"><div class="stone-name-tag"><h5>Mármore Carrara</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/marmore-verde-alpi.jpg" alt="Verde Alpi"><div class="stone-name-tag"><h5>Verde Alpi</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/marrom-imperador-decolores.jpg" alt="Marrom Imperador"><div class="stone-name-tag"><h5>Marrom Imperador</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/MATARAZZO.jpg" alt="Matarazzo"><div class="stone-name-tag"><h5>Matarazzo</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/onix-black-decolores.jpg" alt="Onix Black"><div class="stone-name-tag"><h5>Onix Black</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/onix-green-decolores.jpg" alt="Onix Green"><div class="stone-name-tag"><h5>Onix Green</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/port-laurent-decolores.jpg" alt="Port Laurent"><div class="stone-name-tag"><h5>Port Laurent</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/ROSSO LEVANTO.jpg" alt="Rosso Levanto"><div class="stone-name-tag"><h5>Rosso Levanto</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/TELESTO.jpg" alt="Telesto"><div class="stone-name-tag"><h5>Telesto</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/van-gogh.jpg" alt="Van Gogh"><div class="stone-name-tag"><h5>Van Gogh</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/verde-guatemala-decolores.jpg" alt="Verde Guatemala"><div class="stone-name-tag"><h5>Verde Guatemala</h5><span>Mármore</span></div></div>
+        <div class="stone-card"><img src="assets/images/MÁRMORES/grigio-amostra-principal.jpg" alt="Grigio"><div class="stone-name-tag"><h5>Grigio</h5><span>Mármore</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUARTZITOS -->
+  <section class="cat-section-dark section" id="quartzito">
+    <div class="container">
+      <div class="cat-intro-band reveal">
+        <div>
+          <span class="gold-line"></span>
+          <span class="cat-badge">Natural Collection</span>
+          <h2>Exotic Quartzites</h2>
+          <p style="font-size:0.65rem;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;margin-top:6px;">Quartzitos Exóticos &amp; Preciosos</p>
+        </div>
+        <p class="cat-desc" style="color:rgba(255,255,255,0.55);">Os quartzitos são rochas de extrema beleza e de alta resistência e suas características marcantes têm profunda conexão com sua formação, metamorfismo e composição. Esse tipo de rocha é composta por mais de 75% de quartzo, um mineral lembrado pela sua dureza e variabilidade, que pode ser encontrado desde formas cristalinas e translúcidas até em cores claras, vibrantes e exóticas.</p>
+      </div>
+      <div class="stones-4 reveal">
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/MONT BLANC.jpg" alt="Mont Blanc"><div class="stone-name-tag"><h5>Mont Blanc</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/amazon-reef.jpg" alt="Amazon Reef"><div class="stone-name-tag"><h5>Amazon Reef</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/atlantis.jpg" alt="Atlantis"><div class="stone-name-tag"><h5>Atlantis</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/baikal.jpg" alt="Baikal"><div class="stone-name-tag"><h5>Baikal</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/BLACK FALCON.jpg" alt="Black Falcon"><div class="stone-name-tag"><h5>Black Falcon</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/botanic-green.jpg" alt="Botanic Green"><div class="stone-name-tag"><h5>Botanic Green</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/BRECCIA IMPERIALE.jpg" alt="Breccia Imperiale"><div class="stone-name-tag"><h5>Breccia Imperiale</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/bronzite-escovado.jpg" alt="Bronzite Escovado"><div class="stone-name-tag"><h5>Bronzite Escovado</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/bronzite-vintage.jpg" alt="Bronzite Vintage"><div class="stone-name-tag"><h5>Bronzite Vintage</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/colorado.jpg" alt="Colorado"><div class="stone-name-tag"><h5>Colorado</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/crystal-iluminato.jpg" alt="Crystal Iluminato"><div class="stone-name-tag"><h5>Crystal Iluminato</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/crystal-lumen.jpg" alt="Crystal Lumen"><div class="stone-name-tag"><h5>Crystal Lumen</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/diamond-black.jpg" alt="Diamond Black"><div class="stone-name-tag"><h5>Diamond Black</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/elegant-brown.jpg" alt="Elegant Brown"><div class="stone-name-tag"><h5>Elegant Brown</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/emerald lake.jpg" alt="Emerald Lake"><div class="stone-name-tag"><h5>Emerald Lake</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/emerald-green.jpg" alt="Emerald Green"><div class="stone-name-tag"><h5>Emerald Green</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/emerasya.jpg" alt="Emerasya"><div class="stone-name-tag"><h5>Emerasya</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/fiji.jpg" alt="Fiji"><div class="stone-name-tag"><h5>Fiji</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/fusion-light.jpg" alt="Fusion Light"><div class="stone-name-tag"><h5>Fusion Light</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/fusion-multcolor.jpg" alt="Fusion Multicolor"><div class="stone-name-tag"><h5>Fusion Multicolor</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/ijen-blue.jpg" alt="Ijen Blue"><div class="stone-name-tag"><h5>Ijen Blue</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/infinity grey.jpg" alt="Infinity Grey"><div class="stone-name-tag"><h5>Infinity Grey</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/kallahary.jpg" alt="Kallahary"><div class="stone-name-tag"><h5>Kallahary</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/kallahary-select.jpg" alt="Kallahary Select"><div class="stone-name-tag"><h5>Kallahary Select</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/leblon.jpg" alt="Leblon"><div class="stone-name-tag"><h5>Leblon</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/mandrake.jpg" alt="Mandrake"><div class="stone-name-tag"><h5>Mandrake</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/meridian.jpg" alt="Meridian"><div class="stone-name-tag"><h5>Meridian</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/naica.jpg" alt="Naica"><div class="stone-name-tag"><h5>Naica</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/nebula.jpg" alt="Nebula"><div class="stone-name-tag"><h5>Nebula</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/ocean-green.jpg" alt="Ocean Green"><div class="stone-name-tag"><h5>Ocean Green</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/perla-murano.jpg" alt="Perla Murano"><div class="stone-name-tag"><h5>Perla Murano</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/pink-crystal.jpg" alt="Pink Crystal"><div class="stone-name-tag"><h5>Pink Crystal</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/safari-green.jpg" alt="Safari Green"><div class="stone-name-tag"><h5>Safari Green</h5><span>Quartzito</span></div></div>
+        <div class="stone-card"><img src="assets/images/QUARTZITOS/splendido.jpg" alt="Splendido"><div class="stone-name-tag"><h5>Splendido</h5><span>Quartzito</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRANITOS -->
+  <section class="cat-section-light section" id="granito">
+    <div class="container">
+      <div class="cat-intro-band reveal">
+        <div>
+          <span class="gold-line"></span>
+          <span class="cat-badge">Natural Collection</span>
+          <h2>Granite Selection</h2>
+          <p style="font-size:0.65rem;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;margin-top:6px;">Granitos Selecionados</p>
+        </div>
+        <p class="cat-desc">Os granitos são rochas ígneas, o que significa que sua origem deriva do resfriamento e cristalização em profundidade do magma, o líquido incandescente que se encontra abaixo da crosta terrestre. Alguns granitos podem ser considerados verdadeiros guardiões do tempo geológico, pois foram uma das primeiras rochas a se formarem na Terra, há mais de 3 bilhões de anos.</p>
+      </div>
+      <div class="stones-4 reveal">
+        <div class="stone-card"><img src="assets/images/GRANITOS/AZUL BAHIA.jpg" alt="Azul Bahia"><div class="stone-name-tag"><h5>Azul Bahia</h5><span>Granito</span></div></div>
+        <div class="stone-card"><img src="assets/images/GRANITOS/makalu.jpg" alt="Makalu"><div class="stone-name-tag"><h5>Makalu</h5><span>Granito</span></div></div>
+        <div class="stone-card"><img src="assets/images/GRANITOS/SILVER GREY.jpg" alt="Silver Grey"><div class="stone-name-tag"><h5>Silver Grey</h5><span>Granito</span></div></div>
+        <div class="stone-card"><img src="assets/images/GRANITOS/WHITE DUNE.jpg" alt="White Dune"><div class="stone-name-tag"><h5>White Dune</h5><span>Granito</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIMESTONE -->
+  <section class="cat-section-dark section" id="limestone">
+    <div class="container">
+      <div class="cat-intro-band reveal">
+        <div>
+          <span class="gold-line"></span>
+          <span class="cat-badge">Natural Collection</span>
+          <h2>European Limestones</h2>
+        </div>
+        <p class="cat-desc" style="color:rgba(255,255,255,0.55);">Limestones são rochas sedimentares formados pela precipitação de carbonatos de cálcio em ambiente marinho. A origem desses carbonatos remete às abundantes formas de vida que existiram em mares rasos e tropicais há milhões de anos.</p>
+      </div>
+      <div class="stones-4 reveal">
+        <div class="stone-card"><img src="assets/images/LIMESTONE/BATEIG BLUE.jpg" alt="Bateig Blue"><div class="stone-name-tag"><h5>Bateig Blue</h5><span>Limestone</span></div></div>
+        <div class="stone-card"><img src="assets/images/LIMESTONE/crema-mocca.jpg" alt="Crema Mocca"><div class="stone-name-tag"><h5>Crema Mocca</h5><span>Limestone</span></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ INDUSTRIAL SURFACES ═══ -->
+<div class="tab-panel" id="industrial">
+
+  <!-- EURO TERRAZZO -->
+  <section class="cat-section-light section">
+    <div class="container">
+      <div class="cat-intro-band reveal">
+        <div>
+          <span class="gold-line"></span>
+          <span class="cat-badge">Industrial Surfaces</span>
+          <h2>Italian Terrazzo Collection</h2>
+          <p style="font-size:0.65rem;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;margin-top:6px;">Euro Terrazzo Milano</p>
+        </div>
+        <p class="cat-desc">Euro Terrazzo é um revestimento sofisticado de origem europeia, inspirado no tradicional terrazzo italiano, criado ainda na época da Veneza. Sua composição mistura mármore, granito, quartzo e outras rochas naturais trituradas, resultando em uma superfície única, com estética artística e alto valor arquitetônico.</p>
+      </div>
+      <div class="stones-4 reveal">
+        <div class="stone-card"><img src="assets/images/EURO TERRAZZO/antique.jpg" alt="Antique"><div class="stone-name-tag"><h5>Antique</h5><span>Euro Terrazzo</span></div></div>
+        <div class="stone-card"><img src="assets/images/EURO TERRAZZO/Blackan.jpg" alt="Blackan"><div class="stone-name-tag"><h5>Blackan</h5><span>Euro Terrazzo</span></div></div>
+        <div class="stone-card"><img src="assets/images/EURO TERRAZZO/Elegante.jpg" alt="Elegante"><div class="stone-name-tag"><h5>Elegante</h5><span>Euro Terrazzo</span></div></div>
+        <div class="stone-card"><img src="assets/images/EURO TERRAZZO/luminos.jpg" alt="Luminos"><div class="stone-name-tag"><h5>Luminos</h5><span>Euro Terrazzo</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAMINAM -->
+  <section class="cat-section-dark section">
+    <div class="container">
+      <div class="cat-intro-band reveal">
+        <div>
+          <span class="gold-line"></span>
+          <span class="cat-badge">Industrial Surfaces</span>
+          <h2>Italian Laminam Surfaces</h2>
+        </div>
+        <p class="cat-desc" style="color:rgba(255,255,255,0.55);">Pioneira e especialista em superfícies cerâmicas, a Laminam produz placas de grande formato e espessura mínima para arquitetura, design e mobiliário.</p>
+      </div>
+      <div class="stones-4 reveal">
+        <div class="stone-card"><img src="assets/images/LAMINAM/LAMINAM BLEND.jpg" alt="Laminam Blend"><div class="stone-name-tag"><h5>Laminam Blend</h5><span>Laminam</span></div></div>
+        <div class="stone-card"><img src="assets/images/LAMINAM/LAMINAM CALCE.jpg" alt="Laminam Calce"><div class="stone-name-tag"><h5>Laminam Calce</h5><span>Laminam</span></div></div>
+        <div class="stone-card"><img src="assets/images/LAMINAM/LAMINAM FILO.jpg" alt="Laminam Filo"><div class="stone-name-tag"><h5>Laminam Filo</h5><span>Laminam</span></div></div>
+        <div class="stone-card"><img src="assets/images/LAMINAM/LAMINAM FOKOS.jpg" alt="Laminam Fokos"><div class="stone-name-tag"><h5>Laminam Fokos</h5><span>Laminam</span></div></div>
+        <div class="stone-card"><img src="assets/images/LAMINAM/LAMINAM IN-SIDE.jpg" alt="Laminam In-Side"><div class="stone-name-tag"><h5>Laminam In-Side</h5><span>Laminam</span></div></div>
+        <div class="stone-card"><img src="assets/images/LAMINAM/LAMINAM LEGNO VENEZIA.jpg" alt="Laminam Legno Venezia"><div class="stone-name-tag"><h5>Laminam Legno Venezia</h5><span>Laminam</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEKTON -->
+  <section class="cat-section-light section">
+    <div class="container">
+      <div class="cat-intro-band reveal">
+        <div>
+          <span class="gold-line"></span>
+          <span class="cat-badge">Industrial Surfaces</span>
+          <h2>Dekton Contemporary</h2>
+        </div>
+        <p class="cat-desc">O Dekton é uma pedra industrializada originária de uma mistura sofisticada das matérias-primas utilizadas para fabricar vidro, porcelana de última geração e superfícies de quartzo.</p>
+      </div>
+      <div class="stones-4 reveal">
+        <div class="stone-card"><img src="assets/images/DEKTON/DEKTON ADIA.jpg" alt="Dekton Adia"><div class="stone-name-tag"><h5>Dekton Adia</h5><span>Dekton</span></div></div>
+        <div class="stone-card"><img src="assets/images/DEKTON/DEKTON ARGA.jpg" alt="Dekton Arga"><div class="stone-name-tag"><h5>Dekton Arga</h5><span>Dekton</span></div></div>
+        <div class="stone-card"><img src="assets/images/DEKTON/DEKTON AURA.jpg" alt="Dekton Aura"><div class="stone-name-tag"><h5>Dekton Aura</h5><span>Dekton</span></div></div>
+        <div class="stone-card"><img src="assets/images/DEKTON/DEKTON AWAKE.jpg" alt="Dekton Awake"><div class="stone-name-tag"><h5>Dekton Awake</h5><span>Dekton</span></div></div>
+        <div class="stone-card"><img src="assets/images/DEKTON/DEKTON EVOK.jpg" alt="Dekton Evok"><div class="stone-name-tag"><h5>Dekton Evok</h5><span>Dekton</span></div></div>
+        <div class="stone-card"><img src="assets/images/DEKTON/DEKTON GRAFITE.jpg" alt="Dekton Grafite"><div class="stone-name-tag"><h5>Dekton Grafite</h5><span>Dekton</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SILESTONE -->
+  <section class="cat-section-dark section">
+    <div class="container">
+      <div class="cat-intro-band reveal">
+        <div>
+          <span class="gold-line"></span>
+          <span class="cat-badge">Industrial Surfaces</span>
+          <h2>Silestone Premium Quartz</h2>
+        </div>
+        <p class="cat-desc" style="color:rgba(255,255,255,0.55);">Silestone é uma superfície industrializada à base de quartzo natural — cerca de 90% — combinado com resinas e pigmentos, resultando em uma superfície resistente a impactos, manchas e com baixa porosidade.</p>
+      </div>
+      <div class="stones-4 reveal">
+        <div class="stone-card"><img src="assets/images/SILESTONE/brass relish.jpg" alt="Brass Relish"><div class="stone-name-tag"><h5>Brass Relish</h5><span>Silestone</span></div></div>
+        <div class="stone-card"><img src="assets/images/SILESTONE/bronze rivers.jpg" alt="Bronze Rivers"><div class="stone-name-tag"><h5>Bronze Rivers</h5><span>Silestone</span></div></div>
+        <div class="stone-card"><img src="assets/images/SILESTONE/cinder craze.jpg" alt="Cinder Craze"><div class="stone-name-tag"><h5>Cinder Craze</h5><span>Silestone</span></div></div>
+        <div class="stone-card"><img src="assets/images/SILESTONE/concrete pulse.jpg" alt="Concrete Pulse"><div class="stone-name-tag"><h5>Concrete Pulse</h5><span>Silestone</span></div></div>
+        <div class="stone-card"><img src="assets/images/SILESTONE/coral clay.jpg" alt="Coral Clay"><div class="stone-name-tag"><h5>Coral Clay</h5><span>Silestone</span></div></div>
+        <div class="stone-card"><img src="assets/images/SILESTONE/ethereal glow.jpg" alt="Ethereal Glow"><div class="stone-name-tag"><h5>Ethereal Glow</h5><span>Silestone</span></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Logo + tagline + social -->
+      <div>
+        <img src="assets/images/logo/LOGO BRANCO.png" class="footer-logo" alt="De Carli">
+        <p class="footer-tagline">Quem ama o que faz,<br>entrega o melhor.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/decarlimarmores/" target="_blank" rel="noopener"
+            style="width:auto;padding:0 12px;font-size:0.68rem;font-weight:600;letter-spacing:0.04em;gap:7px;border-radius:4px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @decarlimarmores
+          </a>
+          <a href="https://www.instagram.com/decarlimarmorespf/" target="_blank" rel="noopener"
+            style="width:auto;padding:0 12px;font-size:0.68rem;font-weight:600;letter-spacing:0.04em;gap:7px;border-radius:4px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @decarlimarmorespf
+          </a>
+          <a href="https://www.instagram.com/lazqabr/" target="_blank" rel="noopener"
+            style="width:auto;padding:0 12px;font-size:0.68rem;font-weight:600;letter-spacing:0.04em;gap:7px;border-radius:4px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @lazqabr
+          </a>
+        </div>
+      </div>
+
+      <!-- Unidades -->
+      <div>
+        <div class="footer-section-title">Unidades</div>
+        <div class="footer-units">
+          <div>
+            <div class="footer-unit-name">Porto Alegre</div>
+            <div class="footer-address">
+              Av. Cear&aacute;, 560 | Bairro S&atilde;o Jo&atilde;o<br>
+              CEP: 90240-510<br>
+              Fone: 51 3061.7530<br>
+              <a href="mailto:decarlipoa@dcmg.com.br">decarlipoa@dcmg.com.br</a><br>
+              Segunda a Sexta: 9:00 &agrave;s 18:00<br>
+              S&aacute;bado: 9:00 &agrave;s 13:00
+            </div>
+          </div>
+          <div>
+            <div class="footer-unit-name">Passo Fundo</div>
+            <div class="footer-address">
+              BR 285 KM 294,8 | Ao lado da UPF<br>
+              CEP: 99050-260<br>
+              Fone: 54 3311.7505<br>
+              <a href="mailto:decarli@dcmg.com.br">decarli@dcmg.com.br</a><br>
+              Segunda a Sexta: 8:30 &agrave;s 12:00 e 13:30 &agrave;s 18:00<br>
+              S&aacute;bado: 8:00 &agrave;s 12:00
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links Uteis -->
+      <div class="footer-col">
+        <h5>Links &Uacute;teis</h5>
+        <nav class="footer-links">
+          <a href="#">Pol&iacute;tica de Privacidade</a>
+          <a href="#">Pol&iacute;tica de Cookies</a>
+          <a href="#">Pol&iacute;tica de Prote&ccedil;&atilde;o de Dados</a>
+          <a href="#">C&oacute;digo de Conduta e &Eacute;tica</a>
+          <a href="assets/pdf/DNA Sustent%C3%A1vel/V1FINAL-Relat%C3%B3rio%20de%20Sustentabilidade%202024%20-%20De%20Carli%20(A4)_20260223_160041_0000.pdf" target="_blank">Pol&iacute;tica de Sustentabilidade</a>
+          <a href="#">Trabalhe Conosco</a>
+        </nav>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 De Carli &ndash; DCMG. Todos os direitos reservados.</span>
+      <span>Desenvolvido com excel&ecirc;ncia.</span>
+    </div>
+  </div>
+</footer>
+<div class="lightbox" id="lightbox"><button class="lightbox-close">×</button><img id="lightbox-img" class="lightbox-img" src="" alt=""></div>
+<script src="js/main.js"></script>
+<script src="js/whatsapp.js"></script>
+</body>
+</html>
